@@ -44,6 +44,6 @@ public class TriangleTest{
 		assertEquals(3.3, r4.getPerimeter(), 0.001);
 		assertEquals(0.3, r5.getPerimeter(), 0.001);
 		assertEquals(0.1, r6.getPerimeter(), 0.001);
-		assertEquals(pi*3, r7.getPerimeter(), 0);	
+		assertEquals(9.424777961, r7.getPerimeter(), 0.00000001);	
 	}
 }
