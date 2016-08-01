@@ -27,7 +27,7 @@ public class SquareTest{
 		assertEquals(1.21, r4.getArea(), 0.001);
 		assertEquals(0.01, r5.getArea(), 0.001);
 		assertEquals(0, r6.getArea(), 0.001);
-		assertEquals(Math.pow(pi, 2), r7.getArea(), 0);
+		assertEquals(9.869604401, r7.getArea(), 0.00000001);
 	}
 	
 	@Test
@@ -42,6 +42,6 @@ public class SquareTest{
 		assertEquals(4.4, r4.getPerimeter(), 0.001);
 		assertEquals(0.4, r5.getPerimeter(), 0.001);
 		assertEquals(0.0, r6.getPerimeter(), 0.001);
-		assertEquals(4 * pi, r7.getPerimeter(), 0);	
+		assertEquals(12.56637061, r7.getPerimeter(), 0.0000001);	
 	}
 }
