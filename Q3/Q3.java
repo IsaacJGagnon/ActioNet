@@ -1,47 +1,20 @@
 /************************************************
- * I wasn't 100% sure what the question meant by
- * 1 control structure. Weather it wanted to replace
- * the two inner for loops with a single control structure
- * or to replace the three with a single control
- * structure.
- * 
- * I decided the best route might be to come up with
- * several different ways of lowering the number of
- * control structures.
+ * From the way the first question was worded, I 
+ * wasn't sure if you just wanted it to print out the
+ * same things. Or if you wanted it to do something
+ * other than just print out hard coded values, so I
+ * gave you both.
  ************************************************/
 
 public class Q3{
-	/**
-	 * This first method replaces the two inner for
-	 * loops with a single switch case. Given that it
-	 * requires hard coded output, it's not exactly the
-	 * most flexible option. But the document requested
-	 * the same output with fewer control structures, and
-	 * this meets both those requirements.
-	 **/
-	private void p1v1(){
-		for(int i = 1; i<=5; i++){
-			switch(i){
-				case 1: System.out.println("....1");
-					break;
-				case 2: System.out.println("...22");
-					break;
-				case 3: System.out.println("..333");
-					break;
-				case 4: System.out.println(".4444");
-					break;
-				case 5: System.out.println("55555");
-					break;
-			}
-		}
-	}
 	
 	/**
-	 * The second method is similar to the one above but
-	 * runs recursively. This takes it down to one control
-	 * structure, but again isn't very flexible.
+	 * The first method is a recursive method that uses a switch case.
+	 * To print out hardcoded values. This takes it down to one control
+	 * structure. Just like the original code it goes from 1 to 5 and
+	 * prints the same things, but it's not very expandable
 	 **/
-	private int p1v2(int i){
+	private int p1v1(int i){
 		switch(i){
 			case 1: System.out.println("....1");
 				break;
@@ -55,20 +28,24 @@ public class Q3{
 				return 0;
 			}
 			
-		return p1v2(i + 1);
+		return p1v1(i + 1);
 	}
 	
 	/**
-	 * The third method recursively builds a string of dots.
-	 * Then, when 1 is reached, it is added on, and the string
+	 * The second method recursively builds a string of dots.
+	 * Then, when 1 is reached, it is concatenated on. The string
 	 * is modified and printed on the way back up. First
 	 * replacing the last dot in the string with the previous int.
 	 * Then replacing all the previous ints with the current int.
 	 * 
-	 * Unlike the above two, this version can print the pattern for
+	 * Ex. ....1 -> ...11 -> ...22
+	 *     ...22 -> ..222 -> ..333
+	 *     etc.
+	 * 
+	 * Unlike the method above, this version can print the pattern for
 	 * any number.
 	 **/
-	private String p1v3(String s, int n){
+	private String p1v2(String s, int n){
 		int i;
 		
 		if(n == 1){
@@ -77,7 +54,7 @@ public class Q3{
 			return s;	
 		} else {
 			s = s.concat(".");
-			s = p1v3(s, n-1);
+			s = p1v2(s, n-1);
 		}
 		
 		i = s.lastIndexOf(".", s.length()-n);
@@ -107,9 +84,8 @@ public class Q3{
 	public static void main(String[] args){
 		Q3 q = new Q3();
 		
-		q.p1v1();
-		q.p1v2(1);		
-		q.p1v3("", 5);
+		q.p1v1(1);
+		q.p1v2("", 5);		
 		
 		q.p2(5);
 	}
